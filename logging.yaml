@@ -38,6 +38,22 @@ handlers:
     encoding: utf8
     mode: w
 
+  Embedding:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: standard
+    filename: Logs/Embedding.log
+    encoding: utf8
+    mode: w
+  
+  Semantic_Read:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: standard
+    filename: Logs/Semantic_Read.log
+    encoding: utf8
+    mode: w
+
 loggers:
   API_Call:
     level: DEBUG
@@ -52,6 +68,16 @@ loggers:
   Embedding_write:
     level: DEBUG
     handlers: [Embedding_write]
+    propagate: no
+
+  Embedding:
+    level: DEBUG
+    handlers: [Embedding]
+    propagate: no
+
+  Semantic_Read:
+    level: DEBUG
+    handlers: [Semantic_Read]
     propagate: no
   
 root:

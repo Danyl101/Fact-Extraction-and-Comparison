@@ -1,11 +1,16 @@
 import os
 import re
 import json
+import hashlib
 import logging
 import logging_loader
 from config_loader import config
 
 logger=logging.getLogger("Fact_write")
+
+def generate_article_id(title, site):
+    normalized = f"{site.lower().strip()}::{title.lower().strip()}"
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()[:16]
 
 def json_read():
     base_dir=config["paths"]["Dataset"]["Scraped_Data"]
@@ -48,7 +53,8 @@ def json_write(article_title, data,article_site):
 
     payload = {
         "article_title": article_title,
-        "data": data
+        "data": data,
+        "article_id": generate_article_id(article_title, article_site)
     }
 
     try:

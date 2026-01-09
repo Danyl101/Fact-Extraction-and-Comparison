@@ -8,8 +8,6 @@ logger=logging.getLogger("Embedding_write")
 
 from config_loader import config
 
-[{}]
-
 title_cache=[]
 
 def json_write(data):
