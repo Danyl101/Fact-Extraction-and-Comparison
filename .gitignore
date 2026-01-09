@@ -1,0 +1,11 @@
+venv/
+.venv/
+
+Dataset/
+.Dataset/
+
+Logs/
+.Logs/
+
+Misc/
+.Misc/

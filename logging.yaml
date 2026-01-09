@@ -1,0 +1,59 @@
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  standard:
+    format: "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+  simple:
+    format: "%(levelname)s: %(message)s"
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: simple
+    stream: ext://sys.stdout
+
+  API_Call:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: standard
+    filename: Logs/API_Call.log
+    encoding: utf8
+    mode: w
+
+  Fact_write:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: standard
+    filename: Logs/Fact_write.log
+    encoding: utf8
+    mode: w
+
+  Embedding_write:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: standard
+    filename: Logs/Embedding_write.log
+    encoding: utf8
+    mode: w
+
+loggers:
+  API_Call:
+    level: DEBUG
+    handlers: [API_Call]
+    propagate: no
+
+  Fact_write:
+    level: DEBUG 
+    handlers: [Fact_write]
+    propagate: no
+
+  Embedding_write:
+    level: DEBUG
+    handlers: [Embedding_write]
+    propagate: no
+  
+root:
+  level: WARNING
+  handlers: [console]

@@ -1,0 +1,19 @@
+project:
+  name: KeyStone
+  version: 1.0
+  author: Danyl S John
+  seed: 42
+
+paths:  
+  Dataset:
+    Fact_Data: "Dataset/Fact_Data"
+    Fact_Comparison_Data : "Dataset/Fact_Comparison_Data"
+    Fact_Embedding_Data : "Dataset/Fact_Embedding_Data"
+    Scraped_Data: "Dataset/Scraped_Data"
+    
+      
+          
+
+
+
+
