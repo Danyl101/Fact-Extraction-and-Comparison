@@ -54,6 +54,14 @@ handlers:
     encoding: utf8
     mode: w
 
+  Semantic_Comparison:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: standard
+    filename: Logs/Semantic_Comparison.log
+    encoding: utf8
+    mode: w
+
 loggers:
   API_Call:
     level: DEBUG
@@ -80,6 +88,11 @@ loggers:
     handlers: [Semantic_Read]
     propagate: no
   
+  Semantic_Comparison:
+    level: DEBUG
+    handlers: [Semantic_Comparison]
+    propagate: no
+    
 root:
   level: WARNING
   handlers: [console]

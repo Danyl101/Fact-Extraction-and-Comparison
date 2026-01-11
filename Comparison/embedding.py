@@ -47,7 +47,7 @@ def fact_extraction():
             source=os.path.basename(root)
             title=payload.get("article_title", "Unknown")
             facts = payload.get("data", {}).get("facts", [])
-            id=payload.get("article_id","")
+            id=payload.get("article_id","Unknown")
             embedding=[]
             facts_list=[]
 

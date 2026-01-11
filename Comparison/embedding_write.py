@@ -27,6 +27,7 @@ def json_write(data):
         filepath = os.path.join(site_dir, filename)
 
         payload = {
+            "article_id": data["article_id"],
             "article_title": data["article_title"],
             "embedding": data["embedding"],
             "fact": data["fact"],

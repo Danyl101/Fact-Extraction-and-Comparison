@@ -9,7 +9,6 @@ from config_loader import config
 
 logger=logging.getLogger("Semantic_Read")
 
-
 def embedding_json_read():
     """
     Read all JSON files from the Fact_Embedding_Data directory and return their contents.
@@ -51,11 +50,20 @@ def semantic_json_write(data):
     filepath = os.path.join(site_dir, filename)
 
     payload = {
-        "article_title": data["article_title"],
-        "article_id": data["article_id"],
-        "source": data["source"],
-        "facts": data["facts"]
+        "article_id":data["article_id"],
+        "article_title":data["article_title"],
+        "source":data["source"],
+        "comparisons":data["comparisons"]
     }
+    try:
+        with open(filepath,"w",encoding="utf-8")as f:
+            json.dump(payload,f,indent=2,ensure_ascii=False)
+    except Exception as e:
+        logger.error(f"Error writing to {filepath}: {e}")
+        logger.info(f"Failed to write JSON for article: {data['article_title']}")
+        return None
+    
+    return filepath
 
 
 
