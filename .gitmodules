@@ -1,0 +1,3 @@
+[submodule "news_scraper"]
+	path = news_scraper
+	url = https://github.com/Codewith-Rony/news_scraper.git
