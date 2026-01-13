@@ -62,6 +62,14 @@ handlers:
     encoding: utf8
     mode: w
 
+  Frontend_API_Topic_Read:
+    class: logging.FileHandler
+    level: DEBUG
+    formatter: standard
+    filename: Logs/Frontend_API_Topic_Read.log
+    encoding: utf8
+    mode: w
+
 loggers:
   API_Call:
     level: DEBUG
@@ -91,6 +99,11 @@ loggers:
   Semantic_Comparison:
     level: DEBUG
     handlers: [Semantic_Comparison]
+    propagate: no
+
+  Frontend_API_Topic_Read:
+    level: DEBUG
+    handlers: [Frontend_API_Topic_Read]
     propagate: no
     
 root:

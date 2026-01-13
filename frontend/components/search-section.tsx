@@ -12,6 +12,8 @@ export function SearchSection(){
   const [results,setResults]=useState<any[]>([]);
   const [loading,setLoading]=useState(false);
   const [recentSearches,setRecentSearches]=useState<any[]>([]);
+  const [articleLimit, setArticleLimit] = useState(5)
+
   
   const runSearch = async () => {
     const trimmed = query.trim()
@@ -23,7 +25,8 @@ export function SearchSection(){
     })
 
     setLoading(true)
-    const res = await fetch(`/api/search?query=${encodeURIComponent(trimmed)}`)
+    const res = await fetch(
+  `/api/search?query=${encodeURIComponent(trimmed)}&limit=${articleLimit}`)
     const data = await res.json()
     setResults(data)
     setLoading(false)
@@ -52,6 +55,19 @@ export function SearchSection(){
             className="w-full pl-10 pr-4 py-2.5 border rounded-lg"
           />
         </div>
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <span>Articles:</span>
+        <select
+          value={articleLimit}
+          onChange={(e) => setArticleLimit(Number(e.target.value))}
+          className="border rounded-md px-2 py-1 bg-background text-foreground focus:outline-none"
+        >
+          <option value={3}>3</option>
+          <option value={5}>5</option>
+          <option value={10}>10</option>
+          <option value={20}>20</option>
+        </select>
+      </div>
         <Button onClick={runSearch}>Compare</Button>
       </div>
 

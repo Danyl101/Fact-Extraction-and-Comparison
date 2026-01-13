@@ -11,16 +11,6 @@ logger=logging.getLogger("Semantic_Read")
 
 client=OpenAI()
 
-def paragraph_embedding(text):
-    """
-    Create an embedding for a paragraph/article-level text.
-    """
-    response = client.embeddings.create(
-        model="text-embedding-3-small",
-        input=text
-    )
-    return response.data[0].embedding
-
 def fact_extraction():
     """
     Walk through Fact_Data directory, load facts,

@@ -17,3 +17,10 @@ _____________________________
 Comparison Semantic_Comparison
 
 python -m Comparison.semantic_comparison
+
+_____________________________
+
+BackEnd
+
+uvicorn frontend.app.api.topic_read:app --reload
+

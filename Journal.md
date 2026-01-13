@@ -24,6 +24,10 @@ ____________________________
 
 # Initial Setup [Embedding]
 
+Had to convert the facts into numerical embeddings to compare the semantic values to compare the values 
+
+
+
 
 
 
