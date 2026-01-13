@@ -68,7 +68,7 @@ export function SearchSection(){
           <option value={20}>20</option>
         </select>
       </div>
-        <Button onClick={runSearch}>Compare</Button>
+        <Button onClick={runSearch}>Extract</Button>
       </div>
 
       <div className="space-y-3">
